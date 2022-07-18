@@ -10,7 +10,8 @@ public class BookmarkList {
     public BookmarkList() {
         /**
          * data.txt 파일을 읽어서 parsing을 해 bookmark를 만들어 bookmarkList에 넣어준다.
-         * 이때 받아오는 양식은, name,url,type,memo 순으로 받아오며,
+         * 이때 받아오는 양식은, name,url,type,memo,optional 순으로 받아오며,
+         * optional이 있는 경우는 bookmark 자식 클래스의 contructor를 쓰시면 됩니다.
          * 양 옆 공백문자를 지울 수 있어야 한다.
          */
     }
@@ -24,8 +25,8 @@ public class BookmarkList {
                  * command:
                  *      /help                               - 명령어의 목록을 보여줌.
                  *      /printall                           - list 목록을 보여줌.
-                 *      /print
-                 *      /create <name> <url> [type] [memo]  - bookmark를 생성한다. type과 memo는 optional. name은 같을 수 없다.
+                 *      /print <name>                       - bookmark를 출력한다.
+                 *      /create <name> <url> -t [type] -m [memo]  - bookmark를 생성한다. type과 memo는 optional. name은 같을 수 없다.
                  *      /update <name> <key> <value>        - bookmark를 수정한다. ex) /update naver type information : name이 naver인 bookmark에 group를 portal로 바꿔준다.
                  *      /delete <name>                      - bookmark를 삭제한다.
                  *      /sort <key>                         - key를 기준으로 list를 정렬해준다. ex) /sort type: type을 기준으로 정렬.(같을땐 name이 차순위 key)
@@ -48,6 +49,7 @@ public class BookmarkList {
                     // 구현 하세요. print 함수 사용.
                 } else if (command.equals("/create")) {
                     // 구현 하세요. create 함수 사용.
+                    // create 함수는 -t, -m 옵션에 따라서 맞는 함수를 쓰셔야합니다.
                 } else if (command.equals("/update")) {
                     // 구현 하세요. update 함수 사용.
                 } else if (command.equals("/delete")) {
@@ -93,7 +95,7 @@ public class BookmarkList {
     }
 
     private void update(String name, String key, String value) {
-
+        // optional 값은 update 함수로만 입력 가능하게 한다.
     }
 
     private void delete(String name) {
@@ -101,7 +103,7 @@ public class BookmarkList {
     }
 
     private void sort(String key) {
-
+        // sort 함수의 key로 들어올 수 있는 값은 name, url, type, memo만 가능
     }
 
     private void save() {

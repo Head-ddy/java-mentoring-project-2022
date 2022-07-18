@@ -27,9 +27,10 @@ public abstract class Bookmark {
         this.type = BookmarkType.Others;
         this.memo = memo;
     }
+    // bookmark의 자식 클래스에서는 optional값도 포함하는 constructor를 만드시기 바랍니다.
 
     public void print() {
-        /**
+        /*
          * 기본적인 사항(name, url)만 출력하는 함수
          */
     }
@@ -68,7 +69,5 @@ public abstract class Bookmark {
         this.memo = memo;
     }
 
-    public abstract void getOptional();
-
-    public abstract void setOptional(); // Optional 데이터를 수정하는경우 사용하는 함수.
+    // optional값에 대한 getter setter는 각 class에서 구현하세요.
 }
